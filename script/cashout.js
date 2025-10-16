@@ -1,7 +1,7 @@
 document.getElementById('cashout-btn').addEventListener('click',function(event)
 {
     event.preventDefault();
-    const withdrawAmount=document.getElementById('Amount').value;
+    const withdrawAmount=document.getElementById('cashout-Amount').value;
     const ConvertedWithdrawAmount=parseFloat(withdrawAmount);
     
     const totalBalance=document.getElementById('total-balance').innerText;
@@ -14,12 +14,12 @@ document.getElementById('cashout-btn').addEventListener('click',function(event)
         if(ConvertedWithdrawAmount<=ConvertedTotalBalance)
         {
            const MainBalance=ConvertedTotalBalance-ConvertedWithdrawAmount;
-           console.log(MainBalance);
+           document.getElementById('total-balance').innerText=MainBalance;
         }
         else
         {
             alert("vhi afnar account o oto takai nai");
-        }
+        }   
     }
     else
     {
