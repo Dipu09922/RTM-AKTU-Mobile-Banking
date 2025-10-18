@@ -7,7 +7,7 @@ document.getElementById("login-btn").addEventListener("click", function(event) {
 
   if(AccountNumber.length==11)
   {
-    if(convertedPin===1234)
+    if(pi.length>=4)
     {
       window.location.href="main.html";
     }
@@ -18,7 +18,7 @@ document.getElementById("login-btn").addEventListener("click", function(event) {
   }
   else
   {
-    console.log("type valid account number");
+    alert("type 11 digit account number");
   }
 
 }) 
