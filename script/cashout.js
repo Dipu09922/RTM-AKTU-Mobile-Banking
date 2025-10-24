@@ -1,29 +1,52 @@
-document.getElementById('cashout-btn').addEventListener('click',function(event)
-{
+document
+  .getElementById("cashout-btn")
+  .addEventListener("click", function (event) {
     event.preventDefault();
-    const withdrawAmount=document.getElementById('cashout-Amount').value;
-    const ConvertedWithdrawAmount=parseFloat(withdrawAmount);
-    
-    const totalBalance=document.getElementById('total-balance').innerText;
-    const ConvertedTotalBalance=parseFloat(totalBalance);
-    
-    const pin1=document.getElementById('cashout-pin').value;
+    // const withdrawAmount=document.getElementById('cashout-Amount').value;
+    // const ConvertedWithdrawAmount=parseFloat(withdrawAmount);
 
-    if(pin1==='1234')
+    // const totalBalance=document.getElementById('total-balance').innerText;
+    // const ConvertedTotalBalance=parseFloat(totalBalance);
+
+    // const pin1=document.getElementById('cashout-pin').value;
+    const withdrawAmount = getInputValueById("cashout-Amount");
+
+    const pin = getInputValueById("cashout-pin");
+    const Convertedpin = pin.toString();
+
+    const mainBalance = getInnerTextById("total-balance");
+    
+      const accountNo=document.getElementById('cashout-Account-number').value;
+     
+    if (accountNo.length===11) 
     {
-        if(ConvertedWithdrawAmount<=ConvertedTotalBalance)
+      if (Convertedpin.length >= 4) 
         {
-           const MainBalance=ConvertedTotalBalance-ConvertedWithdrawAmount;
-           document.getElementById('total-balance').innerText=MainBalance;
+        if (withdrawAmount <= mainBalance) 
+        {
+          const sum = mainBalance - withdrawAmount;
+          setInnerTextByIdAndValue("total-balance", sum);
+
+          const container=document.getElementById("Transaction-container");
+
+         const p= document.createElement("p");
+         p.innerText=`
+         cashout ${withdrawAmount} from this ${accountNo} account and your new balance is ${sum}
+         `
+         container.appendChild(p);
+
+        } 
+        else 
+        {
+          alert("vhi afnar account o oto takai nai");
         }
-        else
-        {
-            alert("vhi afnar account o oto takai nai");
-        }   
-    }
+      } 
+      else {
+        alert("invalid pin");
+      }
+    } 
     else
     {
-        alert('invalid pin');
+        alert("Enter 11 digit account number");
     }
-   
-})
+  })

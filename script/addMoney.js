@@ -27,10 +27,17 @@ document.getElementById('add-money').addEventListener('click',function(event)
   const pin=getInputValueById("pin");
   const Convertedpin=pin.toString();
   const accountNo=document.getElementById('Account-number').value;
-
+  
   const totalBalance=getInnerTextById("total-balance");
- 
+   const SelectedBank=document.getElementById("allbank").value;
 
+  
+
+  if(AddedAmount<500)
+  {
+    alert("The amount is less than 500");
+    return;
+  }
   if(AddedAmount)
   {
    if(accountNo.length===11)
@@ -41,6 +48,18 @@ document.getElementById('add-money').addEventListener('click',function(event)
       //  document.getElementById("total-balance").innerText=sum;
       // function use korle
          setInnerTextByIdAndValue("total-balance",sum);
+
+         const container=document.getElementById("Transaction-container");
+
+         const div=document.createElement("div");
+         div.classList.add("bg-red-400");
+
+         div.innerHTML=`
+          <h1 class="text-yellow-300" >Added Money ${AddedAmount}</h1>
+          <h3>From ${SelectedBank}</h3>
+          <p>account number : ${accountNo}</p>
+         `
+         container.appendChild(div);
      }
      else
      {

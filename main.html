@@ -63,7 +63,7 @@
               <img class="w-8 mx-auto" src="assets/purse1.png" alt="" />
               <h1 class="">Pay Bill</h1>
             </div>
-            <div class="box1 border p-4 text-center rounded-xl">
+            <div id="Transaction-box" class="box1 cursor-pointer border p-4 text-center rounded-xl">
               <img class="w-8 mx-auto" src="assets/transaction1.png" alt="" />
               <h1 class="">Transactions</h1>
             </div>
@@ -79,11 +79,11 @@
               <div class="card-body">
                 <!-- <legend>Select Bank</legend> -->
                 <label class="label">Select A Bank</label>
-                <select class="select">
+                <select id="allbank" class="select">
                   <option disabled selected>select payment method</option>
                   <option value="bkash">Bkash</option>
-                  <option value="nagad">Nagad</option>
-                  <option value="dbbl">DBBL</option>
+                  <option value="Nagad">Nagad</option>
+                  <option value="DBBL">DBBL</option>
                 </select>
                 <!-- <fieldset class="fieldset">
           <label class="label">Bank Account Number</label>
@@ -141,8 +141,7 @@
                 <fieldset class="fieldset">
                   <label class="label">Agent Number</label>
                   <input
-                    value="01760077725"
-                    id="Account-number"
+                    id="cashout-Account-number"
                     type="number"
                     class="input"
                     placeholder="Enter 11 digit number"
@@ -158,7 +157,6 @@
                   />
                   <label class="label">Pin Number</label>
                   <input
-                    value="1234"
                     id="cashout-pin"
                     type="text"
                     class="input"
@@ -177,11 +175,20 @@
             </div>
           </div>
         </section>
+
+        <!-- Transaction-history section -->
+        <section id="Transaction-history">
+          <h1 class="text-3xl font-bold text-center text-red-600 p-3">Transaction History</h1>
+          <div id="Transaction-container" class="">
+
+          </div>
+        </section>
       </header>
     </section>
     <script src="script/addMoney.js"></script>
     <script src="script/toggle.js"></script>
     <script src="script/cashout.js"></script>
     <script src="utilities/utilities.js"></script>
+    <script src="script/Transection.js"></script>
   </body>
 </html>
